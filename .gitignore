@@ -23,5 +23,31 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 
-# End of https://www.gitignore.io/api/java
+.ant-targets*
+.classpath
+.gradle
+.idea
+*.iml
+.project
+.settings
+/_eclipse/
+/local.properties
+build
+eclipse-build
+gradle.properties
+ivy*
+javadocs
+kobaltBuild
+lib
+maven-testng-plugin-1.2.jar
+nb-configuration.xml
+out
+src/generated
+target
+test-output
+test-output-tests
+testng.iml
+z_build
+.kobalt
+.DS_Store
  
