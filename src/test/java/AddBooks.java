@@ -13,7 +13,6 @@ import io.restassured.response.Response;
 public class AddBooks {
 
 	@Test
-
 	public void addBook() throws IOException {
 
 		RestAssured.baseURI = "http://216.10.245.166";
@@ -22,15 +21,8 @@ public class AddBooks {
 
 				header("Content-Type", "application/json").
 
-				body("{\n" + 
-						"\n" + 
-						"\"name\":\"Learn Appium Automation with Java\",\n" + 
-						"\"isbn\":\"bczp\",\n" + 
-						"\"aisle\":\"22t\",\n" + 
-						"\"author\":\"John foe\"\n" + 
-						"}\n" + 
-						" \n" + 
-						"")
+				body("{\n" + "\n" + "\"name\":\"Learn Appium Automation with Java\",\n" + "\"isbn\":\"bczp\",\n"
+						+ "\"aisle\":\"22t\",\n" + "\"author\":\"John foe\"\n" + "}\n" + " \n" + "")
 				.and().
 
 				when().
