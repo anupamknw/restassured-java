@@ -1,4 +1,5 @@
 import static io.restassured.RestAssured.given;
+import static org.hamcrest.Matchers.equalTo;
 
 import java.io.IOException;
 import java.nio.file.Files;
@@ -15,11 +16,14 @@ import io.restassured.response.Response;
 public class PostRequestXml {
 	@Test
 	public void postRequestXML() throws IOException {
-		String postData = generateStringFromResource("/Users/knowledgehub/eclipse-workspace/ResAssuredAPITesting/abcd.xml");
+		String postData = generateStringFromResource("/Users/in-anupamp/restassured-java/abcd.xml");
 		RestAssured.baseURI = "http://216.10.245.166";
 
 		Response resp = given().queryParam("key", "qaclick123").body(postData).when().post("/maps/api/place/add/xml")
-				.then().assertThat().statusCode(200).and().contentType(ContentType.XML).extract().response();
+				.then().log().all().assertThat().statusCode(200).and().contentType(ContentType.XML)
+				.body("response.status", equalTo("OK")).
+
+				extract().response();
 
 		XmlPath x = Reusable_methods1.rawToXML(resp);
 		String status = x.get("response.status");
@@ -33,20 +37,16 @@ public class PostRequestXml {
 }
 
 class Reusable_methods1 {
- 
-	
-	public static XmlPath rawToXML(Response res)
-	{
-		String respon=res.asString();
-		XmlPath x=new XmlPath(respon);
+
+	public static XmlPath rawToXML(Response res) {
+		String respon = res.asString();
+		XmlPath x = new XmlPath(respon);
 		return x;
 	}
-	
-	
-	public static JsonPath rawToJSON(Response res)
-	{		
-		String responseString=res.asString();
-		JsonPath js= new JsonPath(responseString);
+
+	public static JsonPath rawToJSON(Response res) {
+		String responseString = res.asString();
+		JsonPath js = new JsonPath(responseString);
 		return js;
 	}
 }
