@@ -6,7 +6,7 @@
 			<parameter name="baseUrl" value="https://sandbox.luigi.companyname.local" />
 	
 		<classes>
-			<class name="RestAssuredDemo" />
+			<class name="regular.RestAssuredDemo" />
 		</classes>
 	</test>
  

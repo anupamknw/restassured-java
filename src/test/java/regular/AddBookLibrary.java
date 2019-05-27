@@ -1,3 +1,5 @@
+package regular;
+
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;

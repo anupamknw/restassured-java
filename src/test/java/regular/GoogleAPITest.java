@@ -1,3 +1,4 @@
+package regular;
 
 import static io.restassured.RestAssured.given;
 
@@ -29,7 +30,7 @@ public class GoogleAPITest {
 
 				get("/maps/api/place/findplacefromtext/json").
 
-				then().
+				then().log().all().
 
 				assertThat().statusCode(200).and().contentType(ContentType.JSON);
 

@@ -1,3 +1,5 @@
+package regular;
+
 import io.restassured.RestAssured;
 
 import io.restassured.http.ContentType;
@@ -29,7 +31,7 @@ public class Basics {
 
 				when().
 
-				get("/Library/GetBook.php").
+				get("/Library/regular.GetBook.php").
 
 				then().assertThat().statusCode(200).and().contentType(ContentType.JSON);
 
@@ -41,7 +43,7 @@ public class Basics {
 
 				when().
 
-				get("/Library/GetBook.php").jsonPath().get("book_name");
+				get("/Library/regular.GetBook.php").jsonPath().get("book_name");
 
 		Assert.assertEquals(s.get(0), "Learn Appium Automation with Java");
 	}

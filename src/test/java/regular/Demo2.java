@@ -1,3 +1,4 @@
+package regular;
 
 import static io.restassured.RestAssured.given;
 
