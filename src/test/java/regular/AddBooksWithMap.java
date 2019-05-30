@@ -14,7 +14,7 @@ public class AddBooksWithMap {
 
         map.put("name", "Learn Automation");
 
-        map.put("isbn", "abdc");
+        map.put("isbn", "abd");
 
         map.put("aisle", "234");
 
@@ -22,7 +22,7 @@ public class AddBooksWithMap {
 
         RestAssured.baseURI="http://216.10.245.166";
 
-        Response resp=given().
+        Response resp=given().log().all().
 
                 header("Content-Type","application/json").
 

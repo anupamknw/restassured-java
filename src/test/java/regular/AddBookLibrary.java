@@ -7,13 +7,18 @@ import static io.restassured.RestAssured.given;
 import io.restassured.path.json.JsonPath;
 import io.restassured.response.Response;
 
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+
 public class AddBookLibrary {
 	@Test
 	public void addBookLibrary() {
 
 		RestAssured.baseURI = "http://216.10.245.166";
 
-		Response res = given().header("Content-type", "application/json").
+		Response res = given().contentType("image/jpg").header("Content-type", "application/json").
 
 				body(payLoad.addData("133", "567")).when().post("Library/Addbook.php").
 
@@ -37,7 +42,7 @@ public class AddBookLibrary {
 
 class payLoad {
 
-	public static String addData(String isbn, String aisle) {
+		public static String addData(String isbn, String aisle) {
 
 		String value = "{\n" + 
 				"\n" + 

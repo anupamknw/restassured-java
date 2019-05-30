@@ -22,14 +22,14 @@ public class PostRequestXml {
 		RestAssured.baseURI = "http://216.10.245.166";
 
 		Response resp = given().queryParam("key", "qaclick123").body(postData).when().post("/maps/api/place/add/xml")
-				.then().log().all().assertThat().statusCode(200).and().contentType(ContentType.XML)
+				.then().assertThat().statusCode(200).and().contentType(ContentType.XML)
 				.body("response.status", equalTo("OK")).
 
 				extract().response();
-
-		XmlPath x = Reusable_methods1.rawToXML(resp);
+		System.out.println(resp.body().prettyPrint());
+/*		XmlPath x = Reusable_methods1.rawToXML(resp);
 		String status = x.get("response.status");
-		System.out.println(status);
+		System.out.println(status);*/
 
 	}
 
@@ -40,15 +40,33 @@ public class PostRequestXml {
 
 class Reusable_methods1 {
 
-	public static XmlPath rawToXML(Response res) {
-		String respon = res.asString();
-		XmlPath x = new XmlPath(respon);
-		return x;
-	}
+    public static XmlPath rawToXML(Response res) {
+        String respon = res.asString();
+        XmlPath x = new XmlPath(respon);
+        return x;
+    }
 
-	public static JsonPath rawToJSON(Response res) {
-		String responseString = res.asString();
-		JsonPath js = new JsonPath(responseString);
-		return js;
-	}
+    public static JsonPath rawToJSON(Response res) {
+        String responseString = res.asString();
+        JsonPath js = new JsonPath(responseString);
+        return js;
+    }
+
+    public static String GenerateStringFromResource(String path)
+
+    {
+
+        try {
+
+            return new String(Files.readAllBytes(Paths.get(path)));
+
+        } catch (IOException e) {
+
+
+            e.printStackTrace();
+            return null;
+
+        }
+
+    }
 }
