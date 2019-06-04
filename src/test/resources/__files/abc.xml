@@ -1,0 +1,28 @@
+<shopping>
+    <category type="groceries">
+        <item>
+            <name>Chocolate</name>
+            <price>10</price>
+        </item>
+        <item>
+            <name>Coffee</name>
+            <price>20</price>
+        </item>
+    </category>
+    <category type="supplies">
+        <item>
+            <name>Paper</name>
+            <price>5</price>
+        </item>
+        <item quantity="4">
+            <name>Pens</name>
+            <price>15</price>
+        </item>
+    </category>
+    <category type="present">
+        <item when="Aug 10">
+            <name>Kathryn's Birthday</name>
+            <price>200</price>
+        </item>
+    </category>
+</shopping>
