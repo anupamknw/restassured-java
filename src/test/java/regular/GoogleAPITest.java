@@ -6,7 +6,6 @@ import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
-import io.restassured.path.json.JsonPath;
 
 public class GoogleAPITest {
 
@@ -30,7 +29,7 @@ public class GoogleAPITest {
 
 				get("/maps/api/place/findplacefromtext/json").
 
-				then().log().all().
+				then().
 
 				assertThat().statusCode(200).and().contentType(ContentType.JSON);
 
@@ -45,7 +44,6 @@ public class GoogleAPITest {
 				param("fields", "photos,formatted_address,name,rating,opening_hours,geometry").when().
 
 				get("/maps/api/place/findplacefromtext/json").then().log().all();
-
 
 	}
 

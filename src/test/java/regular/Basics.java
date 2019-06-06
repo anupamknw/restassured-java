@@ -1,17 +1,14 @@
 package regular;
 
-import io.restassured.RestAssured;
-
-import io.restassured.http.ContentType;
-
 import static io.restassured.RestAssured.given;
-
-import static org.hamcrest.Matchers.equalTo;
 
 import java.util.List;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class Basics {
 
@@ -31,7 +28,7 @@ public class Basics {
 
 				when().
 
-				get("/Library/regular.GetBook.php").
+				get("/Library/GetBook.php").
 
 				then().assertThat().statusCode(200).and().contentType(ContentType.JSON);
 
@@ -43,7 +40,7 @@ public class Basics {
 
 				when().
 
-				get("/Library/regular.GetBook.php").jsonPath().get("book_name");
+				get("/Library/GetBook.php").jsonPath().get("book_name");
 
 		Assert.assertEquals(s.get(0), "Learn Appium Automation with Java");
 	}

@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 
-public class Demo2 {
+public class basic2_post {
 
 	@Test
 
@@ -18,7 +18,9 @@ public class Demo2 {
 
 		RestAssured.baseURI = "http://216.10.245.166";
 
-		given().queryParam("key", "qaclick123").
+		given().
+
+				queryParam("key", "qaclick123").
 
 				body("{\n" + "    \"location\": {\n" + "        \"lat\": -38.383494,\n" + "        \"lng\": 33.427362\n"
 						+ "    },\n" + "    \"accuracy\": 50,\n" + "    \"name\": \"Frontline house\",\n"
@@ -32,7 +34,7 @@ public class Demo2 {
 
 				post("/maps/api/place/add/json").
 
-				then().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
+				then().log().all().assertThat().statusCode(200).and().contentType(ContentType.JSON).and().
 
 				body("status", equalTo("OK"));
 

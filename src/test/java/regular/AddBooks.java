@@ -7,14 +7,13 @@ import java.io.IOException;
 import org.testng.annotations.Test;
 
 import io.restassured.RestAssured;
-
 import io.restassured.path.json.JsonPath;
-
 import io.restassured.response.Response;
 
 public class AddBooks {
 
 	@Test
+
 	public void addBook() throws IOException {
 
 		RestAssured.baseURI = "http://216.10.245.166";

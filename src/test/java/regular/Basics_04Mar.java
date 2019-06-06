@@ -1,12 +1,10 @@
 package regular;
 
-import io.restassured.RestAssured;
-
-import io.restassured.http.ContentType;
-
 import static io.restassured.RestAssured.given;
-
 import static org.hamcrest.Matchers.equalTo;
+
+import io.restassured.RestAssured;
+import io.restassured.http.ContentType;
 
 public class Basics_04Mar {
 
